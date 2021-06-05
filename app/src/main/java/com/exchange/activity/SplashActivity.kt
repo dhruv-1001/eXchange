@@ -26,7 +26,7 @@ class SplashActivity : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed(
             {
-                if (auth.currentUser == null) {
+                if (auth.currentUser != null) {
                     startActivity(Intent(applicationContext, UserLoginActivity::class.java))
                 }
                 else{
