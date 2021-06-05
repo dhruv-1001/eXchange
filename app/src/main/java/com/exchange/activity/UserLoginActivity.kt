@@ -3,7 +3,9 @@ package com.exchange.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.exchange.R
@@ -24,7 +26,6 @@ class UserLoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 // ...
 // Initialize Firebase Auth
-
 
 
 
@@ -57,6 +58,14 @@ class UserLoginActivity : AppCompatActivity() {
         google.setOnClickListener { signIn() }
 
 
+        supportActionBar?.hide()
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+
+
+
+
     }
 
     private fun signIn() {
@@ -76,6 +85,7 @@ class UserLoginActivity : AppCompatActivity() {
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
+                Log.i("error found",e.toString())
 
             }
         }
