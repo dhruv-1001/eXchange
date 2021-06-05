@@ -6,4 +6,225 @@
     android:layout_height="match_parent"
     tools:context=".activity.UserLoginActivity">
 
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="X-Change"
+        android:textSize="55sp"
+        android:textColor="#496076"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/lower_body"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/xchange"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Just Exchange"
+        android:textSize="22sp"
+        android:textColor="#545B60"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/xchange"
+        android:layout_marginBottom="10dp"
+
+        />
+
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up / Login"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/lower_body"
+        android:layout_marginBottom="10dp"
+
+        />
+
+
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/lower_body"
+        android:background="#496076"
+        >
+
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/Email"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/google"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:background="#fff"
+            android:layout_margin="20dp"
+            >
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/googleicon"
+                android:layout_gravity="center"
+                android:id="@+id/googleicon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginLeft="25dp"
+
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:text="Continue with google"
+                android:fontFamily="@font/arimo"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textColor="#496076"
+                android:textStyle="bold"
+                android:textSize="18dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:id="@+id/Email"
+            android:orientation="horizontal"
+            android:background="#fff"
+            android:layout_margin="20dp"
+            >
+
+
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/facebookicon"
+                android:layout_gravity="center"
+                android:id="@+id/facebookicon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginLeft="20dp"
+                />
+
+
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:text="Continue with Email"
+                android:gravity="center"
+                android:fontFamily="@font/arimo"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:textSize="18dp"
+                android:textStyle="bold"
+
+                android:textColor="#496076"
+
+
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/Email"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="horizontal"
+            android:background="#fff"
+            android:layout_margin="20dp"
+            >
+
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="43dp"
+                android:src="@drawable/mobileicon"
+                android:layout_gravity="center"
+                android:id="@+id/mobileicon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginLeft="20dp"
+
+                />
+            
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:text="Continue with Phone"
+                android:gravity="center"
+                android:fontFamily="@font/arimo"
+                android:textColor="#496076"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/mobileicon"
+
+                android:textSize="18dp"
+
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
