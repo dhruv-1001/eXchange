@@ -9,4 +9,9 @@
     <string name="sell">SELL</string>
     <string name="chats">CHATS</string>
     <string name="home">HOME</string>
+    <string name="just_exchange">Just exchange</string>
+    <string name="sign_in_login">Sign In/Login</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="continue_with_phone">Continue with Phone</string>
+    <string name="continue_with_facebook">Continue with Facebook</string>
 </resources>
