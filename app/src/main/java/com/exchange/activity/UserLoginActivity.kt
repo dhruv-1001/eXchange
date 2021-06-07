@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.exchange.R
+import com.exchange.model.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -15,6 +16,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
 
 
@@ -22,21 +24,7 @@ class UserLoginActivity : AppCompatActivity() {
 
     private lateinit var googleSignInClient:GoogleSignInClient
     private lateinit var auth: FirebaseAuth
-// ...
-// Initialize Firebase Auth
-
-
-
-    override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-//        val currentUser = auth.currentUser
-//        val intent = Intent(this,MainActivity::class.java)
-//        startActivity(intent)
-
-    }
-
-
+    private val userReference = FirebaseDatabase.getInstance().reference.child("users")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,11 +47,8 @@ class UserLoginActivity : AppCompatActivity() {
         supportActionBar?.hide()
         window.setFlags(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-
-
-
-
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
     }
 
     private fun signIn() {
@@ -95,7 +80,7 @@ class UserLoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-
+                    addUser()
                     val intent = Intent(this,MainActivity::class.java)
                     startActivity(intent)
 
@@ -107,5 +92,42 @@ class UserLoginActivity : AppCompatActivity() {
             }
     }
 
+
+    // adds new user if not already present in the database
+    private fun addUser(){
+
+        if (userPresent()) return
+
+        Log.d("Updating database", "New Firebase user")
+
+        val user = User()
+        val currentUser = auth.currentUser
+        user.userName = currentUser?.displayName.toString()
+        user.userEmail = currentUser?.email.toString()
+        user.userUid = currentUser?.uid.toString()
+
+        userReference.child(user.userUid).setValue(user)
+
+    }
+
+
+    // function returns true if user is present in the database
+    private fun userPresent(): Boolean{
+
+        var present = false
+
+        userReference
+            .child(auth.currentUser?.uid.toString())
+            .addValueEventListener(object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()) present = true
+                }
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
+
+        return present
+    }
 
 }
