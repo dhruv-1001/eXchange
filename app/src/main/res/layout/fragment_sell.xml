@@ -3,10 +3,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".fragments.SellFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="sell" />
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/what_are_you_offering"
+                android:textSize="20sp"
+                android:padding="16dp"
+                android:textColor="@color/black"
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:inputType="text"
+            android:hint="@string/product_name"
+            android:textSize="14sp"/>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mention_the_key_features_of_your_item"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="16dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:hint="@string/type"
+            android:inputType="textMultiLine"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mention_the_category_of_your_item_ex_property_electronics_vehicle"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="16dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:hint="@string/description"
+            android:inputType="textMultiLine"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/include_features_condition_and_reason_for_selling"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/required_fields"
+            android:textSize="12sp"
+            android:layout_marginStart="16dp"/>
+
+    </LinearLayout>
 
 </layout>

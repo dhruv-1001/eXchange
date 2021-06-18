@@ -14,4 +14,13 @@
     <string name="continue_with_google">Continue with Google</string>
     <string name="continue_with_phone">Continue with Phone</string>
     <string name="continue_with_facebook">Continue with Facebook</string>
+    <string name="what_are_you_offering">What are you offering?</string>
+    <string name="product_name">Product Name*</string>
+    <string name="mention_the_key_features_of_your_item">Mention the key features of your item</string>
+    <string name="type">Type*</string>
+    <string name="mention_the_category_of_your_item_ex_property_electronics_vehicle">Mention the category of your item(ex. property, electronics, vehicle)</string>
+    <string name="description">Description*</string>
+    <string name="include_features_condition_and_reason_for_selling">Include features, condition and reason for selling</string>
+    <string name="required_fields">* Required Fields</string>
+    <string name="navigate_back">navigate back</string>
 </resources>
