@@ -67,7 +67,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_margin="16dp"
-                android:src="@drawable/googleicon"/>
+                android:src="@drawable/ic_google"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -93,7 +93,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_margin="16dp"
-                android:src="@drawable/facebookicon"/>
+                android:src="@drawable/ic_facebook"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -119,7 +119,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_margin="16dp"
-                android:src="@drawable/mobileicon"/>
+                android:src="@drawable/ic_mobile"/>
 
             <TextView
                 android:layout_width="match_parent"

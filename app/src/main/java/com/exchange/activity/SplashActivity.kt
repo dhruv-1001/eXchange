@@ -1,12 +1,11 @@
 package com.exchange.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.Window
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import com.exchange.R
 import com.google.firebase.auth.FirebaseAuth
 
