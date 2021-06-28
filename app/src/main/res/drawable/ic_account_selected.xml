@@ -1,0 +1,24 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+  <path
+      android:pathData="M5,21H3V20C3.0044,16.1358 6.1358,13.0044 10,13H14C17.8642,13.0044 20.9956,16.1358 21,20V21H19V20C18.9967,17.2399 16.7601,15.0033 14,15H10C7.24,15.0033 5.0033,17.2399 5,20V21ZM12,12C9.2386,12 7,9.7614 7,7C7,4.2386 9.2386,2 12,2C14.7614,2 17,4.2386 17,7C16.9967,9.76 14.7601,11.9967 12,12ZM12,4C10.3431,4 9,5.3432 9,7C9,8.6568 10.3431,10 12,10C13.6569,10 15,8.6568 15,7C15,5.3432 13.6569,4 12,4Z"
+      android:fillColor="@color/sailor_blue"/>
+  <path
+      android:pathData="M4,17H20V21H4V17Z"
+      android:fillColor="@color/sailor_blue"/>
+  <path
+      android:pathData="M4,17H20V21H4V17Z"
+      android:fillColor="@color/sailor_blue"/>
+  <path
+      android:pathData="M6,15H18V20H6V15Z"
+      android:fillColor="@color/sailor_blue"/>
+  <path
+      android:pathData="M6,15H18V20H6V15Z"
+      android:fillColor="@color/sailor_blue"/>
+  <path
+      android:pathData="M12,7m-4,0a4,4 0,1 1,8 0a4,4 0,1 1,-8 0"
+      android:fillColor="@color/sailor_blue"/>
+</vector>

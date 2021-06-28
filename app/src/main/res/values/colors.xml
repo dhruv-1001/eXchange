@@ -10,4 +10,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="sailor_blue">#496076</color>
     <color name="mint">#C2F1DB</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>

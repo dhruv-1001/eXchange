@@ -19,12 +19,6 @@
         tools:layout="@layout/fragment_chats" />
 
     <fragment
-        android:id="@+id/sellFragment"
-        android:name="com.exchange.fragments.SellFragment"
-        android:label="fragment_sell"
-        tools:layout="@layout/fragment_sell" />
-
-    <fragment
         android:id="@+id/myAdsFragment"
         android:name="com.exchange.fragments.MyAdsFragment"
         android:label="fragment_my_ads"
