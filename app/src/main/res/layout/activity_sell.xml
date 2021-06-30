@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="@string/next"
-            android:onClick="@{()->viewModel.stageUp()}"
+            android:onClick="@{()->viewModel.stageChange(1)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -44,6 +44,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
+                    android:onClick="@{()->viewModel.finishSellActivity()}"
                     android:src="@drawable/ic_close" />
 
                 <TextView
@@ -159,6 +160,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
+                    android:onClick="@{()->viewModel.stageChange(-1)}"
                     android:src="@drawable/ic_back" />
 
                 <TextView
@@ -180,14 +182,15 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp">
+                android:padding="16dp"
+                android:onClick="@{()->viewModel.getGallery()}">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:text="Select Images (from gallery)"
+                    android:text="@string/select_images"
                     android:textColor="@color/black"
                     android:textSize="16sp"/>
 
@@ -229,6 +232,7 @@
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
                     android:layout_marginEnd="4dp"
+                    android:onClick="@{()->viewModel.changeSelectedImageIndex(-1)}"
                     android:src="@drawable/ic_left"
                     android:layout_gravity="center"
                     android:background="@drawable/image_button_background"
@@ -238,6 +242,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    app:imageUri="@{viewModel.selectedImageUri}"
                     android:layout_weight="80"/>
 
                 <ImageView
@@ -247,6 +252,7 @@
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
                     android:layout_marginStart="4dp"
+                    android:onClick="@{()->viewModel.changeSelectedImageIndex(1)}"
                     android:src="@drawable/ic_right"
                     android:layout_gravity="center"
                     android:background="@drawable/image_button_background"

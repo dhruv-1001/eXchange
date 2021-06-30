@@ -11,7 +11,7 @@
         android:title="@string/chats"/>
     <item
         android:id="@+id/placeHolder"
-        android:title=""/>
+        android:title="@string/sell"/>
     <item
         android:id="@+id/myAdsFragment"
         android:icon="@drawable/selector_my_ads"

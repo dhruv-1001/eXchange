@@ -27,4 +27,5 @@
     <string name="price">Price(INR)*</string>
     <string name="next">Next</string>
     <string name="images">Images</string>
+    <string name="select_images">Select Images</string>
 </resources>
