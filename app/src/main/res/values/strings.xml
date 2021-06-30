@@ -18,9 +18,13 @@
     <string name="product_name">Product Name*</string>
     <string name="mention_the_key_features_of_your_item">Mention the key features of your item</string>
     <string name="type">Type*</string>
-    <string name="mention_the_category_of_your_item_ex_property_electronics_vehicle">Mention the category of your item(ex. property, electronics, vehicle)</string>
+    <string name="mention_the_category_of_your_item_ex_property_electronics_vehicle">Mention the category of your item(eg. property, electronics, vehicle)</string>
     <string name="description">Description*</string>
     <string name="include_features_condition_and_reason_for_selling">Include features, condition and reason for selling</string>
     <string name="required_fields">* Required Fields</string>
     <string name="navigate_back">navigate back</string>
+    <string name="set_price_for_your_item">Set price for your item</string>
+    <string name="price">Price(INR)*</string>
+    <string name="next">Next</string>
+    <string name="images">Images</string>
 </resources>

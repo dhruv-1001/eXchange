@@ -1,139 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="100"
-    tools:context=".activity.UserLoginActivity">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:gravity="bottom"
-        android:layout_weight="60">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/x_change"
-            android:textSize="40sp"
-            android:textColor="@color/sailor_blue"
-            android:textStyle="bold"
-            android:gravity="center_horizontal"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/just_exchange"
-            android:textSize="16sp"
-            android:textColor="@color/sailor_blue"
-            android:textStyle="bold"
-            android:gravity="center_horizontal"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="16sp"
-            android:layout_marginTop="160dp"
-            android:text="@string/sign_in_login"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/sailor_blue"
-        android:layout_weight="40">
+        android:weightSum="100"
+        tools:context=".activity.UserLoginActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
-            android:layout_marginTop="32dp"
-            android:id="@+id/googleLogin"
-            android:background="@drawable/login_buttons_background">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_margin="16dp"
-                android:src="@drawable/ic_google"/>
+            android:layout_height="0dp"
+            android:layout_weight="60"
+            android:gravity="bottom"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/continue_with_google"
-                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:text="@string/x_change"
+                android:textColor="@color/sailor_blue"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/just_exchange"
+                android:textColor="@color/sailor_blue"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginStart="40dp"/>
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="160dp"
+                android:gravity="center"
+                android:text="@string/sign_in_login"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/login_buttons_background">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_margin="16dp"
-                android:src="@drawable/ic_facebook"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/continue_with_facebook"
-                android:layout_gravity="center"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginStart="40dp"/>
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/login_buttons_background">
+            android:layout_height="0dp"
+            android:layout_weight="40"
+            android:background="@color/sailor_blue"
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_margin="16dp"
-                android:src="@drawable/ic_mobile"/>
-
-            <TextView
+            <LinearLayout
+                android:id="@+id/googleLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/continue_with_phone"
-                android:layout_gravity="center"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginStart="40dp"/>
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/login_buttons_background"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_margin="16dp"
+                    android:src="@drawable/ic_google" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="40dp"
+                    android:text="@string/continue_with_google"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/facebookLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/login_buttons_background"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_margin="16dp"
+                    android:src="@drawable/ic_facebook" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="40dp"
+                    android:text="@string/continue_with_facebook"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mobileLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/login_buttons_background"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_margin="16dp"
+                    android:src="@drawable/ic_mobile" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="40dp"
+                    android:text="@string/continue_with_phone"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
 
     </LinearLayout>
 
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

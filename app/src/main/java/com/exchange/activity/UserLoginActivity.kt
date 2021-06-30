@@ -3,8 +3,10 @@ package com.exchange.activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.WindowManager
 import android.widget.LinearLayout
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.exchange.R
@@ -25,12 +27,15 @@ class UserLoginActivity : AppCompatActivity() {
     private lateinit var googleSignInClient:GoogleSignInClient
     private lateinit var auth: FirebaseAuth
     private val userReference = FirebaseDatabase.getInstance().reference.child("users")
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_login)
 
-        val google = findViewById<LinearLayout>(R.id.googleLogin)
+        val googleLogin = findViewById<LinearLayout>(R.id.googleLogin)
+        val facebookLogin = findViewById<LinearLayout>(R.id.facebookLogin)
+        val mobileLogin = findViewById<LinearLayout>(R.id.mobileLogin)
         auth = Firebase.auth
 
         // Configure Google Sign In
@@ -40,8 +45,11 @@ class UserLoginActivity : AppCompatActivity() {
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
+        progressBar = findViewById(R.id.progressBar)
 
-        google.setOnClickListener { signIn() }
+        googleLogin.setOnClickListener { signInWithGoogle() }
+        facebookLogin.setOnClickListener { signInWithFacebook() }
+        mobileLogin.setOnClickListener { signInWithMobile() }
 
 
         supportActionBar?.hide()
@@ -51,7 +59,16 @@ class UserLoginActivity : AppCompatActivity() {
         )
     }
 
-    private fun signIn() {
+    private fun signInWithMobile(){
+        TODO()
+    }
+
+    private fun signInWithFacebook(){
+        TODO()
+    }
+
+    private fun signInWithGoogle() {
+        progressBar.visibility = View.VISIBLE
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, 10)
     }
@@ -78,6 +95,7 @@ class UserLoginActivity : AppCompatActivity() {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
+                progressBar.visibility = View.INVISIBLE
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     addUser()
@@ -86,7 +104,6 @@ class UserLoginActivity : AppCompatActivity() {
 
                 } else {
                     // If sign in fails, display a message to the user.
-
                     Toast.makeText(this, "Login Failed",Toast.LENGTH_SHORT).show()
                 }
             }
