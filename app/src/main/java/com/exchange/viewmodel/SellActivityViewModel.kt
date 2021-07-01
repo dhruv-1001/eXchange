@@ -10,11 +10,12 @@ import kotlin.collections.ArrayList
 
 class SellActivityViewModel: ViewModel() {
 
-    // Both-----------------------------
+    // All-----------------------------
 
     var viewImageVisible = MutableLiveData(false)
     var viewDetailsVisible = MutableLiveData(true)
     var viewSelectedImagesVisible = MutableLiveData(false)
+    var viewSetLocationVisible = MutableLiveData(false)
 
     private var stage = 1
 
@@ -24,8 +25,8 @@ class SellActivityViewModel: ViewModel() {
     // 3-> Set Location visible
     fun stageChange(toAdd: Int){
         stage += toAdd
-        if (stage == 3) {
-            stage = 2
+        if (stage == 4) {
+            stage = 3
             return
         }
         updateVisibleView(stage)
@@ -38,7 +39,12 @@ class SellActivityViewModel: ViewModel() {
             viewDetailsVisible.value = true
         } else if (stage == 2){
             viewDetailsVisible.value = false
+            viewSetLocationVisible.value = false
             viewImageVisible.value = true
+        }
+        else{
+            viewImageVisible.value = false
+            viewSetLocationVisible.value = true
         }
     }
 
@@ -87,11 +93,18 @@ class SellActivityViewModel: ViewModel() {
         changeImage()
     }
 
-    // gelleryIntent observed in SellActivity.kt
+    // galleryIntent observed in SellActivity.kt
     // opens gallery intent for result if galleryIntent == true
     var galleryIntent = MutableLiveData(false)
     fun getGallery(){
         galleryIntent.value = true
+    }
+
+    //Location-----------------------------
+
+    var locationIntent = MutableLiveData(false)
+    fun getLocation(){
+        locationIntent.value = true
     }
 
 }

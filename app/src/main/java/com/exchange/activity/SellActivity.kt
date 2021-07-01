@@ -2,6 +2,7 @@ package com.exchange.activity
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
@@ -45,16 +46,19 @@ class SellActivity : AppCompatActivity() {
             }
         })
 
+        viewModel.locationIntent.observe(this, {
+            if (it == true){
+                viewModel.locationIntent.value = false
+                fetchLocation()
+            }
+        })
+
     }
 
     private var galleryResultActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result->
         if (result.resultCode == Activity.RESULT_OK){
             val data: Intent? = result.data
-            Log.d("Intent Data", "Fetched")
             viewModel.updateSelectedImages(data)
-//            for (i in 0 until data!!.clipData!!.itemCount){
-//                Log.d("Data", data.clipData!!.getItemAt(i).uri.toString())
-//            }
         }
     }
 
@@ -64,18 +68,23 @@ class SellActivity : AppCompatActivity() {
         galleryIntent.type = "image/*"
         galleryIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
         galleryIntent.action = Intent.ACTION_GET_CONTENT
-//        startActivityForResult(Intent.createChooser(galleryIntent, "Select Picture"), PICK_IMAGE_MULTIPLE)
         galleryResultActivity.launch(galleryIntent)
 
     }
 
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//
-//        if (requestCode == PICK_IMAGE_MULTIPLE && resultCode == RESULT_OK && data != null){
-//            viewModel.updateSelectedImages(data.clipData)
-//        }
-//
-//    }
+    private var locationResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result->
+        if (result.resultCode == Activity.RESULT_OK){
+            val data: Intent? = result.data
+        }
+    }
+
+    private fun fetchLocation(){
+        val locationIntent = Intent()
+        locationIntent.action = Intent.ACTION_VIEW
+//        val gmmIntentUri = Uri.parse("geo:37.7749,-122.4194")
+//        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+//        mapIntent.setPackage("com.google.android.apps.maps")
+//        startActivity(mapIntent)
+    }
 
 }
