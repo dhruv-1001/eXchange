@@ -2,9 +2,7 @@ package com.exchange.activity
 
 import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -12,14 +10,13 @@ import androidx.databinding.DataBindingUtil
 import com.exchange.R
 import com.exchange.databinding.ActivitySellBinding
 import com.exchange.viewmodel.SellActivityViewModel
+import com.google.android.material.snackbar.Snackbar
 
 
-class SellActivity : AppCompatActivity() {
+class SellActivity() : AppCompatActivity() {
 
     private lateinit var binding: ActivitySellBinding
-    val viewModel: SellActivityViewModel by viewModels()
-
-    val PICK_IMAGE_MULTIPLE = 1
+    private val viewModel: SellActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +24,11 @@ class SellActivity : AppCompatActivity() {
         supportActionBar?.hide()
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
+
+        viewModel.missingData.observe(this,{
+            Snackbar.make(findViewById(android.R.id.content), viewModel.errorMessage.value.toString(), Snackbar.LENGTH_LONG).show()
+        })
+
     }
 
     override fun onResume() {
@@ -52,6 +54,8 @@ class SellActivity : AppCompatActivity() {
                 fetchLocation()
             }
         })
+
+
 
     }
 
