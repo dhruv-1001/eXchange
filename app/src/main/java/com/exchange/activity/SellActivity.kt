@@ -7,21 +7,29 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import com.exchange.R
 import com.exchange.databinding.ActivitySellBinding
+import com.exchange.repository.FirebaseRepository
 import com.exchange.viewmodel.SellActivityViewModel
+import com.exchange.viewmodel.SellActivityViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 
 
 class SellActivity() : AppCompatActivity() {
 
     private lateinit var binding: ActivitySellBinding
-    private val viewModel: SellActivityViewModel by viewModels()
+    private lateinit var viewModel: SellActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_sell)
         supportActionBar?.hide()
+
+        val firebaseRepo = FirebaseRepository()
+        val viewModelFactory = SellActivityViewModelFactory(firebaseRepo)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(SellActivityViewModel::class.java)
+
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
