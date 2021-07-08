@@ -1,4 +1,4 @@
-package com.exchange.util
+package com.exchange.adapters
 
 import android.net.Uri
 import android.widget.ImageView

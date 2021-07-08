@@ -8,6 +8,9 @@ import androidx.lifecycle.ViewModel
 import com.exchange.repository.FirebaseRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.text.DateFormat.getDateTimeInstance
 import java.util.*
 import kotlin.collections.ArrayList
@@ -46,6 +49,12 @@ class SellActivityViewModel(
         if (stage == 2){
             if (!checkImages()) {
                 updateErrorMessage("Please select at least 3 images")
+                return
+            }
+        }
+        if (stage == 3){
+            if (!checkLocation()){
+                updateErrorMessage("Please select location")
                 return
             }
         }
@@ -156,6 +165,10 @@ class SellActivityViewModel(
 
     //Location-----------------------------
 
+    private fun checkLocation(): Boolean{
+        return false
+    }
+
     var locationIntent = MutableLiveData(false)
     fun getLocation(){
         locationIntent.value = true
@@ -163,45 +176,10 @@ class SellActivityViewModel(
 
     // Firebase----------------------------
 
-    private val auth = FirebaseAuth.getInstance()
-    private val imageStorageReference = FirebaseStorage.getInstance().reference.child("images")
-    private val downloadUrlList: MutableList<String> = ArrayList()
-
-    private fun uploadText(): Boolean{
-        return false
-    }
-
-    private fun uploadImages(imageIndex: Int): Boolean{
-        if (imageIndex == imagesUri.size) return true
-        var toReturn = true
-        val fileName: String = auth.currentUser?.uid + "_" + getDateTimeInstance().format(Date()) + imageIndex.toString()
-        val fileReference = imageStorageReference.child(fileName)
-        fileReference
-            .putFile(imagesUri[imageIndex])
-            .addOnSuccessListener {
-                fileReference.downloadUrl.addOnSuccessListener {
-                    downloadUrlList.add(it.toString())
-                    uploadImages(imageIndex+1)
-                }
-                .addOnFailureListener {
-                    updateErrorMessage(it.toString())
-                    toReturn = false
-                }
-            }
-            .addOnFailureListener{
-                updateErrorMessage("Problem uploading images. Please your internet and try again.")
-                toReturn = false
-            }
-        return toReturn
-    }
-
     private fun uploadProductData(){
-//        if (uploadImages(0) && uploadText()){
-//            updateErrorMessage("Success")
-//        }
-//        else{
-//            updateErrorMessage("Problem uploading images. Check your connection and try again.")
-//        }
+        CoroutineScope(Dispatchers.IO).launch {
+            firebaseRepo.uploadDataToFirebase(TODO())
+        }
     }
 
 }
