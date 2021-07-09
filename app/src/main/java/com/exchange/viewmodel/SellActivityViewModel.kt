@@ -7,7 +7,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.exchange.repository.FirebaseRepository
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -28,6 +27,16 @@ class SellActivityViewModel(
     var viewSelectedImagesVisible = MutableLiveData(false)
     var viewSetLocationVisible = MutableLiveData(false)
     var errorMessage = MutableLiveData("")
+    var locationAdress = MutableLiveData<String>()
+
+
+    //location details
+
+    init {
+        locationAdress.value = ""
+    }
+
+
 
     private var stage = 1
 

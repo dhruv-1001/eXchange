@@ -337,7 +337,7 @@
                 android:layout_height="wrap_content"
                 android:padding="16dp"
                 android:textColor="@color/black"
-                android:text="Selected Location : None"/>
+                android:text="@{viewModel.locationAdress}"/>
 
         </LinearLayout>
 
