@@ -13,7 +13,6 @@ import android.os.Looper
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
@@ -28,13 +27,13 @@ import com.google.android.material.snackbar.Snackbar
 import java.util.*
 
 
-class SellActivity() : AppCompatActivity() {
+class SellActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySellBinding
     private lateinit var viewModel: SellActivityViewModel
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     lateinit var locationRequest: LocationRequest
-    val PERMISSION_ID = 1010
+    private val PERMISSION_ID = 1010
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -210,16 +209,16 @@ class SellActivity() : AppCompatActivity() {
     private fun getCityName(lat: Double,long: Double):String{
         var cityName:String = ""
         var countryName = ""
-        var local_adress = ""
-        var geoCoder = Geocoder(this, Locale.getDefault())
-        var Adress = geoCoder.getFromLocation(lat,long,3)
+        var localAddress = ""
+        val geoCoder = Geocoder(this, Locale.getDefault())
+        val address = geoCoder.getFromLocation(lat,long,3)
 
-        local_adress = Adress.get(0).adminArea
-        cityName = Adress.get(0).locality
-        countryName = Adress.get(0).countryName
+        localAddress = address[0].adminArea
+        cityName = address[0].locality
+        countryName = address[0].countryName
 
-        Log.d("Debug:","Your City: " + cityName + " ; your Country " + countryName)
-        return Adress.get(0).getAddressLine(0)+" "+cityName+" "+local_adress+" "+countryName
+        Log.d("Debug:", "Your City: $cityName ; your Country $countryName")
+        return address[0].getAddressLine(0)+" "+cityName+" "+localAddress+" "+countryName
     }
 
 
